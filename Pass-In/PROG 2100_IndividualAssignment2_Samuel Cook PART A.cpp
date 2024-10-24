@@ -6,6 +6,8 @@
 */
 
 #include <iostream>
+#include <string>
+#include <exception>
 using namespace std;
 
 // =========================================== Global Variables =========================================
@@ -14,7 +16,8 @@ string empID;                   // string variable to hold employee ID, used for
 int numDays;                    // integer variable that holds the number of days the user wishes to enter hours for. Used to determine array size.
 float* daysArray = nullptr;     // pointer variable for storing the hours worked on each day (array).
 
-const float hourlyRate = 20.00; // fixed hourly rate used to calculate total/average pay.
+const float hourlyRate = 20.00;
+// fixed hourly rate used to calculate total/average pay. I assumed that this is the overtime hourly pay, not the 
 
 float totalPay = 0;
 float averagePay = 0;
@@ -34,9 +37,26 @@ int main() {
     cout << "\n===== OVERTIME STATISTICS =====\n";
     cout << "Please enter your Employee ID number: " << endl;
     cin >> empID;
+    // prompt the user for employee ID
+
     cout << "\nPlease enter the number of days that you worked overtime: " << endl;
-    cin >> numDays;
-    // prompt the user for employee ID and number of days that were worked.
+
+    try {
+        
+        cin >> numDays;
+        // try catch statement to handle the user entering invalid data types.
+    
+        if (!numDays || numDays <= 0) { 
+            throw exception();
+        }
+
+    }
+
+    catch(...) {
+        cout << "\nERROR: Invalid entry.\nExiting...\n";
+        return 1;
+    }
+    // it is a very basic try catch, non-specific to any exception types.
 
     cout << "\nYou entered: \n"
          << "Employee ID: " << empID << "\nOvertime Days: " << numDays << "\n";
@@ -63,7 +83,7 @@ int main() {
 
     cout << "Average Overtime Pay: $" << averagePay << " per day";
 
-    // the 5 cout statements above print the results from the two function calls.
+    // the 5 cout statements above print the final results from the two function calls.
 
     delete[] daysArray; 
     // free up the memory that was allocated for the array as it is no longer needed.
@@ -82,7 +102,24 @@ void getOvertimeHours(float **overtimeHours, int numDays) {
     {
 
         cout << "\nPlease enter the number of Overtime Hours you worked on Day " << (i + 1) << ": " << endl;
-        cin >> (*overtimeHours)[i];
+
+        try {
+        
+            cin >> (*overtimeHours)[i];
+            // prompt the user for employee ID and number of days that were worked.
+    
+            if (!(*overtimeHours)[i] || (*overtimeHours)[i] <= 0) { 
+                throw exception();
+            }
+
+        }
+    
+        catch(...) {
+            cout << "\nERROR: Invalid entry.\nExiting...\n";
+            exit(1);
+        }
+        // this try catch is nearly identical to the previous one.
+
         cout << "Day " << (i + 1) << ": " << (*overtimeHours)[i] << " hours." << endl;
         // on each loop, prompt the user for the number of hours they worked on each day.
         // store each number of hours as an index in the daysArray array.
