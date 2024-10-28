@@ -10,7 +10,7 @@ using namespace std;
 
 class BankAccount {
 
-protected:
+private:
     string accountNumber;
     double balance;
 
@@ -22,11 +22,9 @@ public:
 
     virtual ~BankAccount() = default;
 
-    virtual double displayBalance() const = 0;
+    virtual void deposit(float amount) = 0;
 
-    virtual double deposit() const = 0;
-
-    virtual double withdraw() const = 0;
+    virtual void withdraw(float amount) = 0;
 
 };
 
