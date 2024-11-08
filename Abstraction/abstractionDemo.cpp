@@ -55,6 +55,10 @@ public:
         cout << "ERROR: no grade supplied!";
     }
 
+    ~GroupAssignment() {
+        cout << "DELETED!" << title << endl;
+    };
+
 
 };
 
@@ -73,7 +77,8 @@ int main() {
     assignment2->calcGrade();
 
 
-    delete assignment1, assignment2;
+    delete assignment1;
+    delete assignment2;
 
     return 0;
 }

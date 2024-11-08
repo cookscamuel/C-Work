@@ -16,6 +16,7 @@
     could reflect that in these logic files (ie: savings accounts deduct $5 for every
     withdrawal, while joint accounts deduct $15 for every deposit over $200).
 */
+
 void JointAccount::deposit(float amount) {
     cout << "Depositing $" << amount << " into Joint Account " << getAccountNumber() << "." << endl;
     if (amount <= 0) {
