@@ -1,5 +1,13 @@
 #include "movieClass.h"
 
+/*
+    Author: Samuel Cook
+    Date: November 9
+    File: movieClass.cpp
+    Purpose: Logic for the functions found in the base class for movies.
+*/
+
+
 std::string Movie::getTitle() {
     return title;
 }

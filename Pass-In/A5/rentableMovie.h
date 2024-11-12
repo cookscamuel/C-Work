@@ -19,6 +19,8 @@ private:
 public:
     RentableMovie(std::string title, std::string director, int year, float price, int rentTime) : Movie(title, director, year), rentPrice(price), duration(rentTime) {}
 
+    RentableMovie() {}
+
     void displayMovie() override;
 
     float getRentPrice();

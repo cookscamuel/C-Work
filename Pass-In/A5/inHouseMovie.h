@@ -17,8 +17,19 @@ private:
     bool availability;
 
 public:
-    InHouseMovie(string title, string director, int year, float price, bool isAvailable) : Movie(title, director, year), purchasePrice(price), availability(isAvailable) {}
+    InHouseMovie(std::string title, std::string director, int year, float price, bool isAvailable) : Movie(title, director, year), purchasePrice(price), availability(isAvailable) {}
 
+    InHouseMovie() {}
+
+    void displayMovie() override;
+
+    float getPurchasePrice();
+
+    int getAvailability();
+
+    void setPurchasePrice(float price);
+
+    void setAvailability(bool isAvailable);
 
 };
 

@@ -25,6 +25,8 @@ public:
     // Constructor
     Movie(std::string mTitle, std::string mDirector, int mYear) : title(mTitle), director(mDirector), releaseYear(mYear) {}
 
+    Movie() {}
+
     // Destructor
     virtual ~Movie() = default;
 
